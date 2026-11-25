@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <!-- display<input id="display" value="0" size="30"> -->
+         <!-- 부트스트랩 적용3 -->
+          <div class="input-group">
+            <span class="input-group-text">계산</span>
+            <input type="text" class="form-control" id="inputGroupField" placeholder="입력">
+          </div>
+          <small class="form-text">클릭하시오.</small>
+
+        <br>
+        <input type="button" value="  7  " onclick="add('7')">
+        <input type="button" value="  8  " onclick="add('8')">
+        <input type="button" value="  9  " onclick="add('9')">
+        <input type="button" value="  /  " onclick="add('/')">
+        <br>
+        <input type="button" value="  4  " onclick="add('4')">
+        <input type="button" value="  5  " onclick="add('5')">
+        <input type="button" value="  6  " onclick="add('6')">
+        <input type="button" value="  *  " onclick="add('*')">
+        <br>
+        <input type="button" value="  1  " onclick="add('1')">
+        <input type="button" value="  2  " onclick="add('2')">
+        <input type="button" value="  3  " onclick="add('3')">
+        <input type="button" value="  -  " onclick="add('-')">
+        <br>
+        <input type="button" value="  0  " onclick="add('0')">
+        <input type="button" value="  +  " onclick="add('+')">
+        <br>
+        <!-- 부트스트랩 적용1 class="btn"으로 변경 -->
+        <input type="button" class="btn" value="Clear" onclick="clearDisplay()">
+
+        <!-- 부트스트랩 적용2 -->
+        <!-- <input type="button" value="Enter" name="enter" onclick="compute()"> -->
+        <button type="button" class="theme-primary btn-outline" onclick="compute()">Enter
+
+    </form>
+<!-- 부트스트랩 연결 link, script 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MKn5NWVBEuQXJE7TSKSgPUmMiSCmVTfCsR+VSSeQpHnoyJQZZFn/kBn+Ht5jZDPQ" crossorigin="anonymous">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-+PW0IDVGGwmpaBQvcXY+W0BcpHpITFB3dSfSoGvDdHtLbrLpSbpGcvtQRM/BJpz+" crossorigin="anonymous"></script>
+    <script>
+        var expression = "";
+
+        function add(character){  // 더하기[+]
+            expression = expression +character;
+            document.getElementById("inputGroupField").value = expression;
+        }
+        function compute() {      // 계산[Enter]
+            //eval("문자열")함수
+            // expression = "("+expression+")"
+
+            //문자열을 명령으로 변환: 보통 "1 + 2" 같은 따옴표 안의 내용은 단순 글자 데이터이지만, eval("1 + 2")에 넣으면 덧셈 계산식으로 해석해 3을 돌려줍니다.
+            document.getElementById("inputGroupField").value = eval(expression = "("+expression+")"); // 문자열(String)로 된 자바스크립트 코드를 실제로 실행
+        }
+        function clearDisplay(){   // 지우기[Clear]
+            expression = "";
+            document.getElementById("inputGroupField").value = 0;
+        }
+    </script>
+</body>
+</html>
