@@ -1,5 +1,7 @@
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MKn5NWVBEuQXJE7TSKSgPUmMiSCmVTfCsR+VSSeQpHnoyJQZZFn/kBn+Ht5jZDPQ" crossorigin="anonymous">
+        <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-+PW0IDVGGwmpaBQvcXY+W0BcpHpITFB3dSfSoGvDdHtLbrLpSbpGcvtQRM/BJpz+" crossorigin="anonymous"></script>
         <script>
             var expression = "";
 
@@ -8,6 +10,7 @@
                 document.getElementById("display").value = expression;
             }
             function compute() {
+                expression = "(" + expression + ")";
                 document.getElementById("display").value = eval(expression);
             }
             function clearDisplay() {
@@ -18,7 +21,8 @@
     </head>
     <body>
         <form>
-            display<input id="display" value="0" size="30">
+            <label for="exampleFormControlInput" class="form-label mb-2">Calcualtor Display</label>
+            <input type="email" class="form-control" id="display" placeholder="...">
             <br>
             <input type="button" value="  7  " onclick="add('7')">
             <input type="button" value="  8  " onclick="add('8')">
@@ -38,8 +42,8 @@
             <input type="button" value="  0  " onclick="add('0')">
             <input type="button" value="  +  " onclick="add('+')">
             <br>
-            <input type="button" value="Clear" onclick="clearDisplay()">
-            <input type="button" value="Enter" name="enter" onclick="compute()">
+            <button type="button" class="theme-warning btn-outline rounded-0" onclick="clearDisplay()">Clear</button>
+            <button type="button" class="theme-success btn-outline rounded-0" onclick="compute()">Enter</button>
         </form>
     </body>
 </html>
